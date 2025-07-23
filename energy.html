@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clean Energy Solutions</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@6.26.0/babel.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-red-900 text-white">
+  <div id="root"></div>
+  <script type="text/babel">
+    function App() {
+      const [name, setName] = React.useState('');
+      const [email, setEmail] = React.useState('');
+      const [message, setMessage] = React.useState('');
+      const [submissionStatus, setSubmissionStatus] = React.useState('');
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // Simulate email submission (no backend, so logging to console)
+        console.log('Form submitted:', { name, email, message });
+        setSubmissionStatus('Thank you for your message! We will get back to you soon.');
+        setName('');
+        setEmail('');
+        setMessage('');
+        setTimeout(() => setSubmissionStatus(''), 5000);
+      };
+
+      return (
+        <div className="container mx-auto p-4">
+          <header className="text-center py-8">
+            <h1 className="text-4xl font-bold">Clean Energy Solutions</h1>
+            <p className="text-lg mt-2">Powering a Sustainable Future with Meta AI</p>
+          </header>
+
+          <section className="my-8">
+            <h2 className="text-2xl font-semibold">Our Mission</h2>
+            <p className="mt-4">
+              We leverage Meta AI to optimize clean energy production and conservation, focusing on solar and gas turbine technologies. Our solutions align with <strong>SDG 7 (Affordable and Clean Energy)</strong> and <strong>SDG 13 (Climate Action)</strong> by promoting renewable energy adoption and reducing carbon emissions.
+            </p>
+          </section>
+
+          <section className="my-8">
+            <h2 className="text-2xl font-semibold">Energy Sources</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div className="text-center">
+                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Solar Panels" className="w-full h-64 object-cover rounded" />
+                <p className="mt-2">Solar Energy: Harnessing the sun's power for sustainable electricity.</p>
+              </div>
+              <div className="text-center">
+                <img src="https://images.unsplash.com/photo-1614961969896-723a7e0e86dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gas Turbines" className="w-full h-64 object-cover rounded" />
+                <p className="mt-2">Gas Turbines: Efficient and cleaner fossil fuel technology.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="my-8">
+            <h2 className="text-2xl font-semibold">Contact Us</h2>
+            <p className="mt-4">Reach out via email at <a href="mailto:er5589673@gmail.com" className="underline">er5589673@gmail.com</a> or call us at <a href="tel:+254757081720" className="underline">+254 757 081 720</a>.</p>
+            <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="name" className="block">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full p-2 rounded bg-red-800 text-white"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full p-2 rounded bg-red-800 text-white"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block">Message</label>
+                <textarea
+                  id="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full p-2 rounded bg-red-800 text-white"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" className="bg-white text-red-900 px-4 py-2 rounded hover:bg-gray-200">
+                Send Message
+              </button>
+              {submissionStatus && <p className="mt-2 text-green-400">{submissionStatus}</p>}
+            </form>
+          </section>
+
+          <section className="my-8">
+            <h2 className="text-2xl font-semibold">SDG Alignment</h2>
+            <p className="mt-4">
+              Our solutions align with <strong>SDG 7</strong> by increasing access to affordable, reliable, and modern energy through solar and efficient gas turbine technologies. We also support <strong>SDG 13</strong> by using Meta AI to optimize energy systems, reducing greenhouse gas emissions. Additionally, we contribute to <strong>SDG 9</strong> by fostering innovation in clean energy infrastructure.
+            </p>
+          </section>
+
+          <section className="my-8">
+            <h2 className="text-2xl font-semibold">Ethical Considerations</h2>
+            <p className="mt-4">
+              <strong>Risks:</strong> Potential ethical risks include data privacy concerns with Meta AI, unequal access to clean energy technologies, and environmental impacts of gas turbine production. <br />
+              <strong>Mitigations:</strong> We implement strict data encryption and anonymization for AI processes, partner with communities to ensure equitable access, and source materials sustainably to minimize environmental harm.
+            </p>
+          </section>
+
+          <section className="my-8">
+            <h2 className="text-2xl font-semibold">Software Engineering Practices</h2>
+            <p className="mt-4">
+              To ensure long-term sustainability, we follow robust software engineering practices: <br />
+              - <strong>Documentation:</strong> Comprehensive code comments and user guides are maintained to facilitate future updates. <br />
+              - <strong>Testing:</strong> Unit and integration tests are implemented to ensure reliability (e.g., Jest for React components). <br />
+              - <strong>Version Control:</strong> Git is used for collaborative development and tracking changes. <br />
+              - <strong>Continuous Integration:</strong> Automated pipelines (e.g., GitHub Actions) ensure code quality and deployment reliability.
+            </p>
+          </section>
+
+          <footer className="text-center py-8">
+            <p>&copy; 2025 Clean Energy Solutions. All rights reserved.</p>
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
